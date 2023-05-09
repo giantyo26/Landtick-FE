@@ -47,7 +47,7 @@ export default function AddTicket() {
       formData.set("price", form.price);
       formData.set("qty", form.stock);
 
-      const response = await API.post("/ticket", formData);
+      const response = await API.post("/tickets", formData);
       if (response.status === 200) {
         Swal.fire({
           position: "center",
