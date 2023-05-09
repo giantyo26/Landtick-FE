@@ -109,12 +109,12 @@ export default function Header(props) {
                     Admin
                   </h5>
                   <NavDropdown align="end" id="dropdown" title={<img src={Profile} alt="" className="rounded-circle" style={{ cursor: "pointer", objectFit: "cover", width: "50px", height: "50px" }} />}>
-                    <NavDropdown.Item className="d-flex align-items-center" href="/admin/add-station">
+                    <NavDropdown.Item className="d-flex align-items-center" href="/admin-add-station">
                       <img src={Train} alt="" style={{ width: "40px", height: "40px" }} />
                       <span className="ms-3 fw-bold">Add Station</span>
                     </NavDropdown.Item>
                     <NavDropdown.Divider style={{ background: "#EC7AB7" }} />
-                    <NavDropdown.Item className="d-flex align-items-center" href="/admin/add-ticket">
+                    <NavDropdown.Item className="d-flex align-items-center" href="/admin-add-ticket">
                       <img src={IconAddTicket} alt="" />
                       <span className="ms-3 fw-bold">Add Ticket</span>
                     </NavDropdown.Item>
