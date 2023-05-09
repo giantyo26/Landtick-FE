@@ -82,7 +82,7 @@ export default function AdminListTicket() {
               <tr>
                 <th>No</th>
                 <th>Train Name</th>
-                <th>Train Type</th>
+                <th>Train Class</th>
                 <th>Start Station</th>
                 <th>End Station</th>
               </tr>
@@ -92,10 +92,10 @@ export default function AdminListTicket() {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{state.user.fullname}</td>
-                    <td>
-                      {data.start_station_id.name} - {data.destination_station_id.name}
-                    </td>
+                    <td>{data.train_name}</td>
+                    <td>{data.train_class}</td>
+                    <td>{data.start_station.name}</td>
+                    <td>{data.destination_station_id.name}</td>
                     {data.status === "pending" && <td style={{ color: "#FF9900" }}>{data.status}</td>}
                     {data.status === "success" && <td style={{ color: "#78A85A" }}>{data.status}</td>}
                     {data.status === "failed" && <td style={{ color: "#E83939" }}>{data.status}</td>}
