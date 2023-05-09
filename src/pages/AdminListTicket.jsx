@@ -95,7 +95,7 @@ export default function AdminListTicket() {
                     <td>{data.train_name}</td>
                     <td>{data.train_class}</td>
                     <td>{data.start_station.name}</td>
-                    <td>{data.destination_station_id.name}</td>
+                    <td>{data.destination_station.name}</td>
                     {data.status === "pending" && <td style={{ color: "#FF9900" }}>{data.status}</td>}
                     {data.status === "success" && <td style={{ color: "#78A85A" }}>{data.status}</td>}
                     {data.status === "failed" && <td style={{ color: "#E83939" }}>{data.status}</td>}

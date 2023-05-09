@@ -39,7 +39,7 @@ export default function DetailTicket() {
                   <div className="d-flex mt-5">
                     <div>
                       <h4 className="fw-bold">Kereta Api</h4>
-                      <p className="text-secondary">{ConvertFormatDate(data?.ticket.start_date)}</p>
+                      <p className="text-secondary">{data?.ticket.departure_date}</p>
                     </div>
                     <div className="ms-5">
                       <img src="/images/Barcode.png" alt="" />
@@ -48,7 +48,7 @@ export default function DetailTicket() {
                   </div>
                   <div>
                     <div>
-                      <h4 className="fw-bold">{data.ticket.start_station.name}</h4>
+                      <h4 className="fw-bold">{data?.ticket.start_station.name}</h4>
                       <p>{data?.ticket.train_type}</p>
                     </div>
                     <div className="d-flex">
@@ -60,20 +60,20 @@ export default function DetailTicket() {
                       <div className="ms-3 mt-4">
                         <div>
                           <h5 className="fw-bold">{data?.ticket.start_time}</h5>
-                          <h5 className="text-secondary">{moment(data?.ticket.start_date).format("LL")}</h5>
+                          <h5 className="text-secondary">{moment(data?.ticket.departure_date).format("LL")}</h5>
                         </div>
                         <div className="mt-5">
                           <h5 className="fw-bold">{data?.ticket.arrival_time}</h5>
-                          <h5 className="text-secondary">{moment(data?.ticket.start_date).format("LL")}</h5>
+                          <h5 className="text-secondary">{moment(data?.ticket.departure_date).format("LL")}</h5>
                         </div>
                       </div>
                       <div className="ms-5 mt-4">
                         <div>
-                          <h5 className="fw-bold">{data?.ticket.start_station.kota}</h5>
+                          <h5 className="fw-bold">{data?.ticket.start_station.city}</h5>
                           <h5 className="text-secondary">{data?.ticket.start_station.name}</h5>
                         </div>
                         <div className="mt-5">
-                          <h5 className="fw-bold">{data?.ticket.destination_station.kota}</h5>
+                          <h5 className="fw-bold">{data?.ticket.destination_station.city}</h5>
                           <h5 className="text-secondary">{data?.ticket.destination_station.name}</h5>
                         </div>
                       </div>
@@ -111,7 +111,7 @@ export default function DetailTicket() {
               <div className="mt-3" style={{ background: "#E6E6E6" }}>
                 <div className="d-flex justify-content-between align-items-center py-3">
                   <h5 className="ms-3 mb-0 fw-bold">Total</h5>
-                  <h5 className="me-3 mb-0 text-danger fw-bold">{formatRupiah(data.ticket.price)}</h5>
+                  <h5 className="me-3 mb-0 text-danger fw-bold">{formatRupiah(data?.ticket.price)}</h5>
                 </div>
               </div>
             </div>
