@@ -98,7 +98,7 @@ export default function AdminListStation() {
                           <img onClick={handleShowTicket} src="/images/IconSearch.png" alt="" className="" style={{ cursor: "pointer" }} />
                         </div>
                         <div>
-                          <img onClick={() => handleDelete(station.id)} src="/images/IconTrash.png" alt="" className="ms-5" style={{ cursor: "pointer" }} />
+                          <img onClick={() => handleDelete(station?.id)} src="/images/IconTrash.png" alt="" className="ms-5" style={{ cursor: "pointer" }} />
                         </div>
                       </div>
                     </td>

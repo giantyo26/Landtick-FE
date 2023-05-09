@@ -94,7 +94,7 @@ export default function AdminListTicket() {
                     <td>{index + 1}</td>
                     <td>{state.user.fullname}</td>
                     <td>
-                      {data.ticket.start_station.name} - {data.ticket.destination_station.name}
+                      {data.ticket.start_station_id.name} - {data.ticket.destination_station_id.name}
                     </td>
                     {data.status === "pending" && <td style={{ color: "#FF9900" }}>{data.status}</td>}
                     {data.status === "success" && <td style={{ color: "#78A85A" }}>{data.status}</td>}

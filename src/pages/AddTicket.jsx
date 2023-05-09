@@ -94,7 +94,6 @@ export default function AddTicket() {
             name="train_class"
             aria-label="Default select example"
             onChange={handleChange}
-            required={true}
             value={form.train_class}
           >
             <option hidden>Jenis Kereta</option>
