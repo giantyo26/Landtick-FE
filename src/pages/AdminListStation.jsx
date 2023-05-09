@@ -82,7 +82,7 @@ export default function AdminListStation() {
               <tr>
                 <th>No</th>
                 <th>Station City</th>
-                <th>Name Station</th>
+                <th>Station Name</th>
               </tr>
             </thead>
             <tbody>

@@ -38,7 +38,7 @@ export default function AdminListTicket() {
   // If confirm is true, execute delete data
   const deleteById = useMutation(async (id) => {
     try {
-      const response = await API.delete(`/ticket/${id}`);
+      const response = await API.delete(`/tickets/${id}`);
       console.log(response);
       refetch();
       navigate("/");
@@ -92,7 +92,7 @@ export default function AdminListTicket() {
                 return (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{data.user.fullname}</td>
+                    <td>{state.user.fullname}</td>
                     <td>
                       {data.ticket.start_station.name} - {data.ticket.destination_station.name}
                     </td>
