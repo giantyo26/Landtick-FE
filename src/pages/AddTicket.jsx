@@ -22,7 +22,7 @@ export default function AddTicket() {
 
   let { data: stations, refetch } = useQuery("stationsCache", async () => {
     const response = await API.get("/stations");
-    return response.data.data.stations;
+    return response.data.data;
   });
 
   const handleChange = (e) => {
@@ -97,7 +97,7 @@ export default function AddTicket() {
             <Form.Control type="text" name="train_name" placeholder="Nama Kereta" onChange={handleChange} value={form.train_name} />
           </Form.Group>
 
-          <Form.Select className="mb-3" name="train_type" aria-label="Default select example" onChange={handleChange} required={true} value={form.train_class}>
+          <Form.Select className="mb-3" name="train_class" aria-label="Default select example" onChange={handleChange} required={true} value={form.train_class}>
             <option hidden>Jenis Kereta</option>
             <option value="Ekonomi">Ekonomi</option>
             <option value="Bisnis">Bisnis</option>
@@ -105,9 +105,17 @@ export default function AddTicket() {
           </Form.Select>
 
           <Form.Group className="mb-3">
-            <Form.Control type="date" name="start_date" placeholder="Tanggal Keberangkatan" onChange={handleChange} value={form.departure_date} />
+            <Form.Control type="date" name="departure-date" placeholder="Tanggal Keberangkatan" onChange={handleChange} value={form.departure_date} />
           </Form.Group>
 
+          <Form.Group className="mb-3">
+            <Form.Control type="time" name="start_time" placeholder="Jam Keberangkatan" onChange={handleChange} value={form.start_time} />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Control type="time" name="arrival_time" placeholder="Jam Tiba" onChange={handleChange} value={form.arrival_time} />
+          </Form.Group>
+          
           <Form.Select className="mb-3" name="start_station_id" aria-label="Default select example" onChange={handleChange} value={form.start_station_id}>
             <option hidden>Stasiun Keberangkatan</option>
             {stations?.map((item) => (
@@ -116,10 +124,6 @@ export default function AddTicket() {
               </option>
             ))}
           </Form.Select>
-
-          <Form.Group className="mb-3">
-            <Form.Control type="time" name="start_time" placeholder="Jam Keberangkatan" onChange={handleChange} value={form.start_time} />
-          </Form.Group>
 
           <Form.Select className="mb-3" name="destination_station_id" aria-label="Default select example" onChange={handleChange} value={form.destination_station_id}>
             <option hidden>Stasiun Tujuan</option>
@@ -130,9 +134,7 @@ export default function AddTicket() {
             ))}
           </Form.Select>
 
-          <Form.Group className="mb-3">
-            <Form.Control type="time" name="arrival_time" placeholder="Jam Tiba" onChange={handleChange} value={form.arrival_time} />
-          </Form.Group>
+         
 
           <Form.Group className="mb-3">
             <Form.Control type="text" name="price" min={0} placeholder="Harga Tiket" onChange={handleChange} value={form.price} />
