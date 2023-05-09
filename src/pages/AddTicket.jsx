@@ -45,7 +45,7 @@ export default function AddTicket() {
       formData.set("start_time", form.start_time);
       formData.set("arrival_time", form.arrival_time);
       formData.set("price", form.price);
-      formData.set("qty", form.stock);
+      formData.set("qty", form.qty);
 
       const response = await API.post("/tickets", formData);
       if (response.status === 200) {
