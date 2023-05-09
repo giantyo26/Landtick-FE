@@ -106,7 +106,7 @@ export default function AddTicket() {
           <Form.Group className="mb-3">
             <Form.Control
               type="date"
-              name="departure-date"
+              name="departure_date"
               placeholder="Tanggal Keberangkatan"
               onChange={handleChange}
               value={form.departure_date}
