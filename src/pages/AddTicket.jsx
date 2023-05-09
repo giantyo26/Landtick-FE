@@ -39,7 +39,7 @@ export default function AddTicket() {
       const formData = new FormData();
       formData.set("train_name", form.train_name);
       formData.set("train_class", form.train_class);
-      formData.set("start_date", form.departure_date);
+      formData.set("departure_date", form.departure_date);
       formData.set("start_station_id", form.start_station_id);
       formData.set("destination_station_id", form.destination_station_id);
       formData.set("start_time", form.start_time);

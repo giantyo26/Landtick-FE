@@ -150,7 +150,7 @@ export const Register = (props) => {
         </Form>
 
         <p className="text-center mt-3">
-          Sudah Punya AKun ? Klik{" "}
+          Sudah Punya Akun ? Klik{" "}
           <span onClick={props.onClick} className="fw-bold" style={{ cursor: "pointer" }}>
             Disini
           </span>

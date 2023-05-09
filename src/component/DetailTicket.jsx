@@ -80,10 +80,6 @@ export default function DetailTicket() {
                     </div>
                   </div>
                 </div>
-                <div className="ms-5">
-                  <img src="/images/Placeholder.webp" alt="" style={{ width: "220px", height: "250px" }} />
-                  <p className="text-center text-secondary">upload payment proof</p>
-                </div>
               </div>
 
               <table class="mt-3 border-top border-bottom border-1 border-dark w-100">
@@ -174,10 +170,6 @@ export default function DetailTicket() {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="ms-5">
-                  <img src="/images/Placeholder.webp" alt="" style={{ width: "220px", height: "250px" }} />
-                  <p className="text-center text-secondary">upload payment proof</p>
                 </div>
               </div>
 
