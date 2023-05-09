@@ -37,7 +37,6 @@ export default function Home(props) {
 
     return response.data.data;
   });
-  // tickets?.map((tiket) => {console.log(tiket)})
 
   const [filteredTicket, setFilteredTicket] = useState([]);
   const handleFilter = (e) => {

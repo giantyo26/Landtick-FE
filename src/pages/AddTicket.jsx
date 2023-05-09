@@ -20,8 +20,9 @@ export default function AddTicket() {
   });
   console.log(form);
 
-  let { data: stations, refetch } = useQuery("stationsCache", async () => {
+  let { data: stations } = useQuery("stationsCache", async () => {
     const response = await API.get("/stations");
+    console.log(response);
     return response.data.data;
   });
 
@@ -55,17 +56,6 @@ export default function AddTicket() {
           showConfirmButton: false,
           timer: 1500,
         });
-        setForm({
-          train_name: "",
-          train_class: "",
-          departure_date: "",
-          start_station_id: "",
-          destination_station_id: "",
-          start_time: "",
-          arrival_time: "",
-          price: "",
-          qty: "",
-        });
       }
     } catch (error) {
       Swal.fire({
@@ -79,10 +69,6 @@ export default function AddTicket() {
     }
   });
 
-  useEffect(() => {
-    refetch();
-  }, [stations]);
-
   return (
     <>
       <div className="container mt-5">
@@ -94,10 +80,23 @@ export default function AddTicket() {
           }}
         >
           <Form.Group className="mb-3">
-            <Form.Control type="text" name="train_name" placeholder="Nama Kereta" onChange={handleChange} value={form.train_name} />
+            <Form.Control
+              type="text"
+              name="train_name"
+              placeholder="Nama Kereta"
+              onChange={handleChange}
+              value={form.train_name}
+            />
           </Form.Group>
 
-          <Form.Select className="mb-3" name="train_class" aria-label="Default select example" onChange={handleChange} required={true} value={form.train_class}>
+          <Form.Select
+            className="mb-3"
+            name="train_class"
+            aria-label="Default select example"
+            onChange={handleChange}
+            required={true}
+            value={form.train_class}
+          >
             <option hidden>Jenis Kereta</option>
             <option value="Ekonomi">Ekonomi</option>
             <option value="Bisnis">Bisnis</option>
@@ -105,46 +104,96 @@ export default function AddTicket() {
           </Form.Select>
 
           <Form.Group className="mb-3">
-            <Form.Control type="date" name="departure-date" placeholder="Tanggal Keberangkatan" onChange={handleChange} value={form.departure_date} />
+            <Form.Control
+              type="date"
+              name="departure-date"
+              placeholder="Tanggal Keberangkatan"
+              onChange={handleChange}
+              value={form.departure_date}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Control type="time" name="start_time" placeholder="Jam Keberangkatan" onChange={handleChange} value={form.start_time} />
+            <Form.Control
+              type="time"
+              name="start_time"
+              placeholder="Jam Keberangkatan"
+              onChange={handleChange}
+              value={form.start_time}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Control type="time" name="arrival_time" placeholder="Jam Tiba" onChange={handleChange} value={form.arrival_time} />
+            <Form.Control
+              type="time"
+              name="arrival_time"
+              placeholder="Jam Tiba"
+              onChange={handleChange}
+              value={form.arrival_time}
+            />
           </Form.Group>
-          
-          <Form.Select className="mb-3" name="start_station_id" aria-label="Default select example" onChange={handleChange} value={form.start_station_id}>
-            <option hidden>Stasiun Keberangkatan</option>
+
+          <Form.Select
+            aria-label="Default select example"
+            name="start_station_id"
+            onChange={handleChange}
+            value={formSearch.start_station_id}
+          >
+            <option hidden>Start Station</option>
             {stations?.map((item) => (
               <option key={item.id} value={item?.id}>
-                {item.name}
+                {item.name} {item.city}
               </option>
             ))}
           </Form.Select>
 
-          <Form.Select className="mb-3" name="destination_station_id" aria-label="Default select example" onChange={handleChange} value={form.destination_station_id}>
-            <option hidden>Stasiun Tujuan</option>
+          <Form.Select
+            aria-label="Default select example"
+            name="destination_station_id"
+            onChange={handleChange}
+            value={formSearch.destination_station_id}
+          >
+            <option hidden>Tujuan Station</option>
             {stations?.map((item) => (
               <option key={item.id} value={item?.id}>
-                {item.name}
+                {item?.name} {item?.city}
               </option>
             ))}
           </Form.Select>
 
-         
-
           <Form.Group className="mb-3">
-            <Form.Control type="text" name="price" min={0} placeholder="Harga Tiket" onChange={handleChange} value={form.price} />
+            <Form.Control
+              type="text"
+              name="price"
+              min={0}
+              placeholder="Harga Tiket"
+              onChange={handleChange}
+              value={form.price}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Control type="text" name="qty" min={0} placeholder="Qty" onChange={handleChange} value={form.qty} />
+            <Form.Control
+              type="text"
+              name="qty"
+              min={0}
+              placeholder="Qty"
+              onChange={handleChange}
+              value={form.qty}
+            />
           </Form.Group>
 
-          <Button className="mt-5" variant="outline-light fw-bold" type="submit" style={{ width: "535px", height: "50px", background: "#0ACF83", marginLeft: "282px" }}>
+          <Button
+            className="mt-5"
+            variant="outline-light fw-bold"
+            type="submit"
+            style={{
+              width: "535px",
+              height: "50px",
+              background: "#0ACF83",
+              marginLeft: "282px",
+            }}
+          >
             Save
           </Button>
         </Form>
