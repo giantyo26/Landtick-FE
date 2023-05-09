@@ -137,7 +137,7 @@ export default function AddTicket() {
             aria-label="Default select example"
             name="start_station_id"
             onChange={handleChange}
-            value={formSearch.start_station_id}
+            value={form.start_station_id}
           >
             <option hidden>Start Station</option>
             {stations?.map((item) => (
@@ -151,7 +151,7 @@ export default function AddTicket() {
             aria-label="Default select example"
             name="destination_station_id"
             onChange={handleChange}
-            value={formSearch.destination_station_id}
+            value={form.destination_station_id}
           >
             <option hidden>Tujuan Station</option>
             {stations?.map((item) => (
