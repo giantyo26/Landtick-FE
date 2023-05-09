@@ -84,7 +84,7 @@ export default function AdminListTicket() {
                 <th>Train Name</th>
                 <th>Train Class</th>
                 <th>Start Station</th>
-                <th>End Station</th>
+                <th>Destination Station</th>
               </tr>
             </thead>
             <tbody>
