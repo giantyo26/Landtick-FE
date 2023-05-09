@@ -110,7 +110,6 @@ export default function AdminListStation() {
         </div>
       </div>
       <Footer />
-      <ModalDetailTicket show={showTicket} onHide={handleCloseTicket} />
       <DeleteData setConfirmDelete={setConfirmDelete} show={show} handleClose={handleClose} />
     </>
   );
