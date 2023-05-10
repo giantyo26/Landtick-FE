@@ -92,7 +92,7 @@ export default function Home(props) {
                     </Form.Group>
                   </div>
                 </div>
-                <Form.Control className="mt-2" type="date" onChange={handleChange} value={formSearch.start_date} id="start_date" name="start_date" style={{ width: "138px", height: "30px" }} />
+                <Form.Control className="mt-2" type="date" onChange={handleChange} value={formSearch.departure_date} id="departure_date" name="departure_date" style={{ width: "138px", height: "30px" }} />
               </div>
               <div>
                 <img className="mt-4 ms-3" src="/images/switch.png" alt="" style={{ width: "50px", height: "50px" }} />
