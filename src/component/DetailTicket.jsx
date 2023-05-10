@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { API } from "../config/api";
 import moment from "moment";
-import { ConvertFormatDate } from "../utils";
 import { UserContext } from "../context/userContext";
 
 export default function DetailTicket() {
@@ -130,7 +129,7 @@ export default function DetailTicket() {
                   <div className="d-flex mt-5">
                     <div>
                       <h4 className="fw-bold">Kereta Api</h4>
-                      <p className="text-secondary">{ConvertFormatDate(data?.ticket.start_date)}</p>
+                      <p className="text-secondary">{data?.ticket.departure_date}</p>
                     </div>
                     <div className="ms-5">
                       <img src="/images/Barcode.png" alt="" />
