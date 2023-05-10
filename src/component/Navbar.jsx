@@ -119,6 +119,14 @@ export default function Header(props) {
                       <span className="ms-3 fw-bold">Add Ticket</span>
                     </NavDropdown.Item>
                     <NavDropdown.Divider style={{ background: "#EC7AB7" }} />
+                    <NavDropdown.Item className="d-flex align-items-center" href="/admin-list-station">
+                      <span className="ms-3 fw-bold">List Station</span>
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider style={{ background: "#EC7AB7" }} />
+                    <NavDropdown.Item className="d-flex align-items-center" href="/admin-list-ticket">
+                      <span className="ms-3 fw-bold">List Ticket</span>
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider style={{ background: "#EC7AB7" }} />
                     <NavDropdown.Item className="d-flex align-items-center" onClick={logout}>
                       <img src={Logout} alt="" />
                       <span className="ms-3 fw-bold">Logout</span>

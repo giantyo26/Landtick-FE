@@ -38,7 +38,7 @@ export default function AdminListTransaction() {
   // If confirm is true, execute delete data
   const deleteById = useMutation(async (id) => {
     try {
-      const response = await API.delete(`/transaction/${id}`);
+      const response = await API.delete(`/transactions/${id}`);
       console.log(response);
       refetch();
       navigate("/");
@@ -82,7 +82,7 @@ export default function AdminListTransaction() {
               <tr>
                 <th>No</th>
                 <th>Users</th>
-                <th>Tiket</th>
+                <th>Ticket</th>
                 <th>Status Payment</th>
                 <th>Action</th>
               </tr>

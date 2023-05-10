@@ -54,7 +54,7 @@ export default function MyTicket() {
                   </div>
                   <div className="text-end position-absolute" style={{ marginLeft: "750px" }}>
                     <h1>Kereta Api</h1>
-                    <h5 className="text-secondary">{(item?.ticket.start_date)}</h5>
+                    <h5 className="text-secondary">{(item?.ticket.departure_date)}</h5>
                   </div>
                   <div className="d-flex">
                     <div>
@@ -72,20 +72,20 @@ export default function MyTicket() {
                     <div className="ms-3 mt-4">
                       <div>
                         <h5 className="fw-bold">{item?.ticket.start_time}</h5>
-                        <h5 className="text-secondary">{moment(item?.ticket.start_date).format("LL")}</h5>
+                        <h5 className="text-secondary">{moment(item?.ticket.departure_date).format("LL")}</h5>
                       </div>
                       <div className="mt-5">
                         <h5 className="fw-bold">{item?.ticket.arrival_time}</h5>
-                        <h5 className="text-secondary">{moment(item?.ticket.start_date).format("LL")}</h5>
+                        <h5 className="text-secondary">{moment(item?.ticket.departure_date).format("LL")}</h5>
                       </div>
                     </div>
                     <div className="ms-5 mt-4">
                       <div>
-                        <h5 className="fw-bold">{item?.ticket.start_station.kota}</h5>
+                        <h5 className="fw-bold">{item?.ticket.start_station.city}</h5>
                         <h5 className="text-secondary">{item?.ticket.start_station.name}</h5>
                       </div>
                       <div className="mt-5">
-                        <h5 className="fw-bold">{item?.ticket.destination_station.kota}</h5>
+                        <h5 className="fw-bold">{item?.ticket.destination_station.city}</h5>
                         <h5 className="text-secondary">{item?.ticket.destination_station.name}</h5>
                       </div>
                     </div>

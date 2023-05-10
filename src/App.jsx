@@ -13,8 +13,6 @@ import ListStations from "./pages/AdminListStation";
 
 import { UserContext } from "./context/userContext";
 import React, { useContext } from "react";
-// import AdminRoute from "./component/AdminRoute";
-// import UserRoute from "./component/UserRoute";
 
 function App() {
 
