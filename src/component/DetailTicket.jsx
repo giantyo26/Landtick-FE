@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { API } from "../config/api";
 import moment from "moment";
-import { ConvertFormatDate } from "../utils";
 import { UserContext } from "../context/userContext";
 
 export default function DetailTicket() {
