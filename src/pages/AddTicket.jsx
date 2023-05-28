@@ -146,7 +146,7 @@ export default function AddTicket() {
             ))}
           </Form.Select>
 
-          <Form.Select classsName="mb-3"
+          <Form.Select className="mb-3"
             aria-label="Default select example"
             name="destination_station_id"
             onChange={handleChange}
