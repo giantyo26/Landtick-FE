@@ -11,7 +11,7 @@
     const [state] = useContext(UserContext);
 
     let { data: myTicket } = useQuery("myTicketCache", async () => {
-      const response = await API.get("/user-transactions");
+      const response = await API.get("/order-user");
       return response.data.data;
     });
     console.log(myTicket);
