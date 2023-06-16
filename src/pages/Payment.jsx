@@ -9,7 +9,7 @@ import moment from "moment";
 export default function Payment() {
   const navigate = useNavigate();
   let { data: myTicket } = useQuery("myTicket", async () => {
-    const response = await API.get("/user-transactions");
+    const response = await API.get("/order-user");
  
     return response.data.data;
   });
