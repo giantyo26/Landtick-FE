@@ -33,7 +33,7 @@ export default function Ticket({ filteredTickets }) {
 
   const HandleBuy = async (id) => {
     try {
-      const response = await API.post(`/transactions/${id}`);
+      const response = await API.post(`/create-trans/${id}`);
       console.log(response);
       return response.data.data;
     } catch (error) {
