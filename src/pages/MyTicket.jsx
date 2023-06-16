@@ -12,7 +12,7 @@ export default function MyTicket() {
   const [state] = useContext(UserContext);
 
   let { data: myTicket } = useQuery("myTicketCache", async () => {
-    const response = await API.get("/order-user");
+    const response = await API.get("/user-transactions");
     return response.data.data;
   });
   console.log(myTicket);
