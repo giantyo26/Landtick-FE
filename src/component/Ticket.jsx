@@ -45,7 +45,7 @@ export default function Ticket({ filteredTickets }) {
     return (
       <>
         {filteredTickets.length < 1 ? (
-          <h5 className="mt-5 d-flex justify-content-center fw-bold">Not Founds</h5>
+          <h5 className="mt-5 d-flex justify-content-center fw-bold">Not Found</h5>
         ) : (
           <>
             {filteredTickets?.map((ticket, index) => (

@@ -124,7 +124,7 @@ export default function Home(props) {
                 <div className="d-flex mt-3">
                   <div>
                     <h5 className="">Dewasa</h5>
-                    <Form.Select aria-label="Default select example" name="qty" onChange={handleChange} value={formSearch.qty} style={{ width: "116px", height: "auto" }}>
+                    <Form.Select aria-label="Default select example" name="qty" style={{ width: "116px", height: "auto" }}>
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -133,7 +133,7 @@ export default function Home(props) {
                   </div>
                   <div className="ms-3">
                     <h5>Bayi</h5>
-                    <Form.Select aria-label="Default select example" name="anak" onChange={handleChange} style={{ width: "116px", height: "auto" }}>
+                    <Form.Select aria-label="Default select example" name="anak" style={{ width: "116px", height: "auto" }}>
                       <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
