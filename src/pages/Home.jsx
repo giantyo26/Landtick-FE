@@ -72,7 +72,9 @@ export default function Home(props) {
     }
 
     // Enable useQuery to fetch the search results
-    ticketData.refetch()
+    if (ticketData) {
+      ticketData?.refetch()
+    }
   };
 
  
