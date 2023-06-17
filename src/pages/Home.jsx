@@ -35,6 +35,24 @@ export default function Home(props) {
     return response.data.data;
   });
 
+   // Fetch the search results
+  const { data: ticketData } = useQuery("filterTicketCache", async () => {
+    const response = await API.get(url);
+
+      if (response.status === 200) {
+        // Update the filter results
+        setFilteredTicket(response.data.data);
+      } else {
+        // Display an error message
+        throw new Error(response.data.message)
+      }
+    return response.data.data;
+    }, 
+    {
+      enabled: false, // Disable the query by default (must refetch)
+    }
+  );
+
   // Handle seatch filter by form
   const handleFilter = (e) => {
     e.preventDefault();
@@ -53,19 +71,8 @@ export default function Home(props) {
       url += `${formSearch.departure_date || formSearch.start_station_id ? '&' : '?'}destination_station_id=${formSearch.destination_station_id}`;
     }
 
-    // Fetch the search results
-    useQuery("filterTicketCache", async () => {
-    const response = await API.get(url);
-
-      if (response.status === 200) {
-        // Update the filter results
-        setFilteredTicket(response.data.data);
-      } else {
-        // Display an error message
-        throw new Error(response.data.message)
-      }
-    return response.data.data;
-    });
+    // Enable useQuery to fetch the search results
+    ticketData.refetch()
   };
 
  
