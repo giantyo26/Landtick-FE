@@ -35,14 +35,13 @@ export default function Home(props) {
     return response.data.data;
   });
 
- 
-
+  // Handle seatch filter by form
   const handleFilter = (e) => {
     e.preventDefault();
-    const url = `/filter-tickets`
+    let url = `/filter-tickets`
 
-     // Add the filter parameters to the URL if they're provided
-     if (formSearch.departure_date) {
+    // Add the filter parameters to the URL if they're provided
+    if (formSearch.departure_date) {
       url += `?departure_date=${formSearch.departure_date}`;
     }
 
@@ -54,18 +53,19 @@ export default function Home(props) {
       url += `${formSearch.departure_date || formSearch.start_station_id ? '&' : '?'}destination_station_id=${formSearch.destination_station_id}`;
     }
 
-      const { data: tickets } = useQuery("ticketCache", async () => {
-        const response = await API.get(url);
+    // Fetch the search results
+    useQuery("filterTicketCache", async () => {
+    const response = await API.get(url);
 
-        if (response.status === 200) {
-          // Update the search results
-          setFilteredTicket(response.data.data);
-        } else {
-          // Display an error message
-          throw new Error(data.message)
-        }
-        return response.data.data;
-      });
+      if (response.status === 200) {
+        // Update the filter results
+        setFilteredTicket(response.data.data);
+      } else {
+        // Display an error message
+        throw new Error(response.data.message)
+      }
+    return response.data.data;
+    });
   };
 
  
