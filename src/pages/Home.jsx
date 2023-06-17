@@ -30,12 +30,14 @@ export default function Home(props) {
     });
   };
 
-  let { data: stations } = useQuery("stationsCache", async () => {
+  const { data: stations } = useQuery("stationsCache", async () => {
     const response = await API.get("/stations");
     return response.data.data;
   });
 
-   // Fetch the search results
+  // Global scoped URL variable
+  let url = `/filter-tickets`
+  // Fetch the search results
   const { data: ticketData } = useQuery("filterTicketCache", async () => {
     const response = await API.get(url);
 
@@ -56,8 +58,6 @@ export default function Home(props) {
   // Handle seatch filter by form
   const handleFilter = (e) => {
     e.preventDefault();
-    let url = `/filter-tickets`
-
     // Add the filter parameters to the URL if they're provided
     if (formSearch.departure_date) {
       url += `?departure_date=${formSearch.departure_date}`;
