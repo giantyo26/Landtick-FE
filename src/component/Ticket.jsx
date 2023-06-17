@@ -44,8 +44,8 @@ export default function Ticket({ filteredTickets }) {
   if (filteredTickets !== undefined && filteredTickets.length > 0) {
     return (
       <>
-        {tickets < 1 ? (
-          <h5 className="mt-5 d-flex justify-content-center fw-bold">Admin Has Not Added Tickets</h5>
+        {filteredTickets.length < 1 ? (
+          <h5 className="mt-5 d-flex justify-content-center fw-bold">Not Founds</h5>
         ) : (
           <>
             {filteredTickets?.map((ticket, index) => (

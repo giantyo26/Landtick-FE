@@ -10,13 +10,12 @@ import { useQuery } from "react-query";
 export default function Home(props) {
   const [showLogin, setShowLogin] = useState(false);
   const [state] = useContext(UserContext);
-  const [ticket, setTicket] = useState();
   const [formSearch, setFormSearch] = useState({
     departure_date: "",
     start_station_id: "",
     destination_station_id: "",
-    qty: "",
   });
+  const [filteredTicket, setFilteredTicket] = useState([]);
 
   useEffect(() => {
     if (state.isLogin === true) {
@@ -29,34 +28,47 @@ export default function Home(props) {
       ...formSearch,
       [e.target.name]: e.target.value,
     });
-    console.log(formSearch);
-  };
-
-  let { data: tickets } = useQuery("ticketCache", async () => {
-    const response = await API.get("/tickets");
-
-    return response.data.data;
-  });
-
-  const [filteredTicket, setFilteredTicket] = useState([]);
-  const handleFilter = (e) => {
-    e.preventDefault();
-    const filtered = tickets?.filter(
-      (ticket) => formSearch.start_station_id == "" || ticket.StartStationID == formSearch.start_station_id &&
-      (formSearch.destination_station_id == "" || ticket.EndStationID == formSearch.destination_station_id) &&
-      (formSearch.start_date == "" || ticket.start_date == formSearch.start_date) && (formSearch.qty <= ticket.qty)
-    );
-    setFilteredTicket(filtered);
-    console.log("this is filtered data", filtered);
   };
 
   let { data: stations } = useQuery("stationsCache", async () => {
     const response = await API.get("/stations");
-    console.log(response)
     return response.data.data;
   });
 
+ 
 
+  const handleFilter = (e) => {
+    e.preventDefault();
+    const url = `/filter-tickets`
+
+     // Add the filter parameters to the URL if they're provided
+     if (formSearch.departure_date) {
+      url += `?departure_date=${formSearch.departure_date}`;
+    }
+
+    if (formSearch.start_station_id) {
+      url += `${formSearch.departure_date ? '&' : '?'}start_station_id=${formSearch.start_station_id}`;
+    }
+
+    if (formSearch.destination_station_id) {
+      url += `${formSearch.departure_date || formSearch.start_station_id ? '&' : '?'}destination_station_id=${formSearch.destination_station_id}`;
+    }
+
+      const { data: tickets } = useQuery("ticketCache", async () => {
+        const response = await API.get(url);
+
+        if (response.status === 200) {
+          // Update the search results
+          setFilteredTicket(response.data.data);
+        } else {
+          // Display an error message
+          throw new Error(data.message)
+        }
+        return response.data.data;
+      });
+  };
+
+ 
   return (
     <>
       <Jumbotron />
@@ -69,7 +81,7 @@ export default function Home(props) {
           </div>
         </div>
         <div className="ms-3 mt-2">
-          <form action="">
+          <form id="ticket-search-form">
             <h4>Tiket Kereta Api</h4>
             <div className="d-flex">
               <div style={{ width: "400px" }}>
@@ -155,7 +167,7 @@ export default function Home(props) {
           </div>
         </div>
       </div>
-      <Ticket filteredTickets={filteredTicket} tickets={ticket} />
+      <Ticket filteredTickets={filteredTicket} />
       <Footer />
     </>
   );
