@@ -41,10 +41,10 @@ export default function Ticket({ filteredTickets }) {
     }
   };
 
-  if (filteredTickets !== undefined && filteredTickets.length > 0) {
+  if (filteredTickets.length >= 0) {
     return (
       <>
-        {filteredTickets.length < 1 ? (
+        {filteredTickets.length == 0 ? (
           <h5 className="mt-5 d-flex justify-content-center fw-bold">Not Found</h5>
         ) : (
           <>
