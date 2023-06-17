@@ -78,6 +78,7 @@ export default function Home(props) {
   useEffect(() => {
     console.log("success");
     console.log(ticketData);
+    console.log(filteredTicket)
   }, [ticketData]);
   
   return (
