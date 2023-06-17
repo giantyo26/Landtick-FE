@@ -41,7 +41,7 @@ export default function Ticket({ filteredTickets }) {
     }
   };
 
-  if (filteredTickets.length >= 0) {
+  if (filteredTickets !== undefined && filteredTickets.length > 0) {
     return (
       <>
         {filteredTickets.length == 0 ? (
