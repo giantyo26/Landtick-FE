@@ -38,7 +38,7 @@ export default function Home(props) {
   // Global scoped URL variable
   let url = `/filter-tickets`
   // Fetch the search results
-  const { data: ticketData } = useQuery("filterTicketCache", async () => {
+  const { data: ticketData, refetch } = useQuery("filterTicketCache", async () => {
     const response = await API.get(url);
 
       if (response.status === 200) {
@@ -72,13 +72,14 @@ export default function Home(props) {
     }
 
     // Enable useQuery to fetch the search results
-    if (ticketData) {
-      ticketData?.refetch()
-    }
-    console.log("success")
-    console.log(ticketData)
+    refetch()
   };
 
+  useEffect(() => {
+    console.log("success");
+    console.log(ticketData);
+  }, [ticketData]);
+  
   return (
     <>
       <Jumbotron />
