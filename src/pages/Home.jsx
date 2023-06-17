@@ -75,9 +75,10 @@ export default function Home(props) {
     if (ticketData) {
       ticketData?.refetch()
     }
+    console.log("success")
+    console.log(ticketData)
   };
 
- 
   return (
     <>
       <Jumbotron />
